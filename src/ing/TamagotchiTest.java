@@ -67,8 +67,4 @@ public class TamagotchiTest {
 	public void testToString() throws Exception{
 		assertEquals("Tamagotchi [name=tama, satiety=50, emotivity=50]", my.toString());
 	}
-	
-
-	
-
 }
