@@ -32,10 +32,17 @@ public class Tamagotchi {
 		this.emotivity = START_EMOTIVITY;
 		this.satiety = START_SATIETY;
 	}
+	
+	/**
+	 * 
+	 * @param name
+	 * @param s
+	 * @param e
+	 */
 	public Tamagotchi(String name, int s, int e) {
 		this.name = name.toLowerCase();
-		this.emotivity = s;
-		this.satiety = e;
+		this.emotivity = e;
+		this.satiety = s;
 	}
 	
 	/**
@@ -76,7 +83,7 @@ public class Tamagotchi {
 	}
 	
 	public boolean isAlive() {
-		if(this.satiety==0 || this.emotivity==0 || this.satiety==MAX_VALUE) {
+		if(this.satiety<=0 || this.emotivity<=0 || this.satiety>=MAX_VALUE) {
 			return false;
 		} else return true;
 	}
