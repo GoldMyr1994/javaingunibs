@@ -4,9 +4,10 @@ javaingunibs
 CORSO INGEGNERIA DELL'INFORMAZIONE 
 JAVA 2014/2015
 
-Classi:
-_Person
-_BankAccount
-_Blog
-_Tamagotchi
+<ul>Classi
+<li>Person</li>
+<li>BankAccount</li>
+<li>Blog</li>
+<li>Tamagotchi</li>
+</ul>
 
