@@ -1,11 +1,12 @@
 package ing.blog;
 
 import ing.Person;
+import ing.myUtil.StringOperations;
 
 import java.time.LocalDate;
 
 public class Post {
-	
+
 	private final String title;
 	private final String permalink;
 	private final Person author;
@@ -16,7 +17,7 @@ public class Post {
 		this.title = title.toLowerCase();
 		this.permalink = permalink; //NO OPERATION LOWERCASE
 		this.author = author;
-		this.text = text.toLowerCase();
+		this.text = text;
 		this.date = LocalDate.now();
 	}
 
@@ -24,9 +25,7 @@ public class Post {
 	 * @return the title
 	 */
 	public String getTitle() {
-		char[] title = this.title.toCharArray();
-		title[0] = Character.toUpperCase(title[0]);
-		return new String(title);
+		return StringOperations.CapitalizeFirstLetter(this.title);
 	}
 
 	/**
@@ -47,7 +46,7 @@ public class Post {
 	 * @return the text
 	 */
 	public String getText() {
-		return text;
+		return StringOperations.CapitalizeFirstLetter(this.text);
 	}
 
 	/**
@@ -55,6 +54,15 @@ public class Post {
 	 */
 	public LocalDate getDate() {
 		return date;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return new String(	title + " di("+ getAuthor().getFirstName() + " "+ getAuthor().getLastName()+")   " 
+							+ getText() +"- publicato il "+ date.toString());
 	}
 
 }

@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class PostTest {
 	Person i = new Person("mauro","conte",1994,7,2,Person.Gender.MALE);
-	Post aPost = new Post("A","B.html",i,"D");
+	Post aPost = new Post("A","B.html",i,"bla bla bla figurati te il JavaDoc");
 
 	//HOW TO TEST GET TIME?????
 	
@@ -29,7 +29,7 @@ public class PostTest {
 	
 	@Test
 	public void testGetText() {
-		assertEquals("D",aPost.getText());
+		assertEquals("Bla bla bla figurati te il JavaDoc",aPost.getText());
 	}
 	
 	

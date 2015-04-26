@@ -1,5 +1,7 @@
 package ing.blog;
 
+import ing.myUtil.StringOperations;
+
 public class Blog {
 	
 	private final String name;
@@ -7,22 +9,22 @@ public class Blog {
 	//private Post [] listPost;
 	
 	public Blog(String name, String url) {
-		this.name = name;
-		this.url = url;
+		this.name = name.toLowerCase();
+		this.url = url.toLowerCase();
 	}
 
 	/**
 	 * @return the name
 	 */
 	public String getName() {
-		return name;
+		return StringOperations.CapitalizeFirstLetter(this.name);
 	}
 
 	/**
 	 * @return the url
 	 */
 	public String getUrl() {
-		return url;
+		return this.url;
 	}
 
 }

@@ -1,5 +1,7 @@
 package ing;
 
+import ing.myUtil.StringOperations;
+
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -44,18 +46,14 @@ public class Person {
 	 * @return the firstName
 	 */
 	public String getFirstName() {
-		char[] name = this.firstName.toCharArray();
-		name[0] = Character.toUpperCase(name[0]);
-		return new String(name);
+		return StringOperations.CapitalizeFirstLetter(this.firstName);
 	}
 	
 	/**
 	 * @return the lastName
 	 */
 	public String getLastName() {
-		char[] name = this.lastName.toCharArray();
-		name[0] = Character.toUpperCase(name[0]);
-		return new String(name);
+		return StringOperations.CapitalizeFirstLetter(this.lastName);
 	}
 
 	
