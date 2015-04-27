@@ -1,6 +1,7 @@
 package ing;
 
 import static org.junit.Assert.assertEquals;
+
 import ing.Person.Gender;
 
 import org.junit.Test;

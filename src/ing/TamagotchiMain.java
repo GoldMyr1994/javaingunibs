@@ -12,7 +12,7 @@ public class TamagotchiMain {
 		System.out.println(WELCOME_MESSAGE);
 		System.out.println(STEP_1_MESSAGE);
 		String name = ReaderInput.readWord(GET_NAME_MESSAGE);
-		Tamagotchi tama = new Tamagotchi(name,Tamagotchi.START_SATIETY,Tamagotchi.START_EMOTIVITY);
+		Tamagotchi tama = new Tamagotchi(name,Tamagotchi.DEFAULT_SATIETY,Tamagotchi.DEFAULT_EMOTIVITY);
 		System.out.println(tama.toString());
 		
 	}

@@ -1,4 +1,4 @@
-package ing.myUtil;
+ package ing.myUtil;
 
 public class StringOperations {
 	
