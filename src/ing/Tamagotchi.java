@@ -62,6 +62,9 @@ public class Tamagotchi {
 		this.satiety = s;					//anche qui
 	}
 	
+	
+	public void f() {}
+	
 	/**
 	 * @return the sastiety
 	 */
