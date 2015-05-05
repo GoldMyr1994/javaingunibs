@@ -4,6 +4,7 @@ package ing;
  * A bank account has a balance that can be changed by 
  * deposits and withdrawals.
  * 
+ * diocane
  * @author Mauro Conte
  * @version 1.0
  * @since 1.0
