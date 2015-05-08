@@ -21,50 +21,39 @@ public class CDTest {
 //		myCD.addTrack(new Track("mama call", 2.21));
 //		myCD.addTrack(new Track("luna y sol", 3.07));
 //		myCD.addTrack(new Track("", 0.00));
-//		myCD.addTrack(new Track("", 0.00));
-//		myCD.addTrack(new Track("", 0.00));
-//		myCD.addTrack(new Track("", 0.00));
 
 		
 	}
 
 	@Test
 	public void testGetTitle() {
-		assertEquals("Clandestino", myCD.getTitle());
+		assertEquals("clandestino", myCD.getTitle());
 	}
 
 	@Test
 	public void testGetAuthor() {
-		assertEquals("Manu chao", myCD.getAuthor());
+		assertEquals("manu chao", myCD.getAuthor());
 	}
 
 	@Test
 	public void testAddTrack() {
-		myCD.addTrack(new Track("desaparecido", 3.49));
-		assertEquals("Track [title=Desaparecido, lenght=3,49]",myCD.selectTrackByIndex(1));
-	}
-
-	@Test
-	public void testSelectRandomTrack() {
-		String theTrack = "";
-		for(int i=0;i<=10;i++) theTrack = myCD.selectRandomTrack();
-		assertEquals("Track [title=Clandestino, lenght=2,28]",theTrack);
+		assertEquals(1,myCD.addTrack(new Track("desaparecido", 3.49)));
 	}
 
 	@Test
 	public void testSelectTrackByIndex() {
-		assertEquals("Track [title=Clandestino, lenght=2,28]",myCD.selectTrackByIndex(0));
+		assertEquals(new Track("clandestino", 2.28).toString(),myCD.selectTrackByIndex(0).toString());
 	}
 
 	@Test
 	public void testSelectTrackByTitle() {
-		assertEquals("Track [title=Clandestino, lenght=2,28]",myCD.selectTrackByTitle("clandestino"));
+		assertEquals(new Track("clandestino", 2.28).toString(), myCD.selectTrackByTitle("clandestino").toString());
 	}
 
 	@Test
 	public void testToString() {
 		myCD.addTrack(new Track("desaparecido", 3.49));
-		assertEquals("CD [title=Clandestino, author=Manu chao, listTrack=[Track [title=Clandestino, lenght=2,28], Track [title=Desaparecido, lenght=3,49]]]", myCD.toString());
+		assertEquals("clandestino - manu chao\nclandestino [02:28]\ndesaparecido [03:49]\n", myCD.toString());
 	}
 
 }

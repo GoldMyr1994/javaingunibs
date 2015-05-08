@@ -63,8 +63,6 @@ public class Tamagotchi {
 	}
 	
 	
-	public void f() {}
-	
 	/**
 	 * @return the sastiety
 	 */

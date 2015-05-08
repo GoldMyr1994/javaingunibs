@@ -4,14 +4,6 @@ import java.util.Vector;
 
 public class ArchiveCD {
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "ArchiveCD [archiveCD=" + archiveCD + "]";
-	}
-
 	private final Vector<CD> archiveCD;
 	
 	public ArchiveCD() {
@@ -40,9 +32,38 @@ public class ArchiveCD {
 		return this.archiveCD.get(index).toString();
 	}
 	
+	public int getArchiveLenght() {
+		return archiveCD.size();
+	}
+	
+	public boolean hasCD(String title) {
+		boolean result = false;
+		if(archiveCD.size()>0) {
+			for(CD item : archiveCD) {
+				if(item.getTitle().equals(title)) {
+					result = true;
+					break;
+				}
+			}
+		}
+		return result;
+	}
+	
+	public void removeCD(String title) {
+
+	}
+	
 //	public selectRandomTrack(int index) {
 //		return this.archiveCD.get(index).toString();
 //	}
 	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ArchiveCD [archiveCD=" + archiveCD + "]";
+	}
+
 	
 }

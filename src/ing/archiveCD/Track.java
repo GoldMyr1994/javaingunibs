@@ -1,53 +1,88 @@
 package ing.archiveCD;
 
-import ing.myUtil.Math;
-import ing.myUtil.StringOperations;
-
 /**
  * 
  * @author 		Mauro Conte
- * @version  	1.1
+ * @version  	1.2
  * @since  		1.0
- * @see			ing.myUtil.ReaderInput
+ * @see			ing.myUtil.StringOperationsTest
  */
 public class Track {
 
 	private final String title;
-	private final double lenght;
+	
+	private final int INT_TO_DOUBLE_POSITION = 100;
+	private final int SEC_PER_MIN = 60;
+	
+	private final int min;
+	private final int sec;
 
 	/**
-	 * 
+	 * <p><b>Track</b><p>
+	 * <p><i style="margin-left:40px">public Track(String, double)</i></p>
 	 * @param title of the track
-	 * @param lenght of the track in seconds 
+	 * @param lenght of the track in minutes 
 	 */
-	public Track(String title, double lenght) {
-		this.title = title.toLowerCase();
-		this.lenght = lenght;
+	public Track(String title, double lenghtInMin) {
+		//this.title = title.toLowerCase();
+		this.title = title;
+		this.min = new Double(lenghtInMin).intValue();
+		this.sec = (int)(Math.round(lenghtInMin*INT_TO_DOUBLE_POSITION) - min*INT_TO_DOUBLE_POSITION);
 	}
-
+	
 	/**
-	 * @return the title of the track, first letter uppercase
+	 * <p><b>Track</b><p>
+	 * <p><i style="margin-left:40px">public Track(String, int, int)</i></p>
+	 * @param title of the track
+	 * @param min of the track
+	 * @param sec of the track
+	 */
+	public Track(String title, int min, int sec) {
+		//this.title = title.toLowerCase();
+		this.title = title;
+		this.min = min;
+		this.sec = sec;
+	}
+	
+	/**
+	 * <p><b>Track</b><p>
+	 * <p><i style="margin-left:40px">public Track(String, int)</i></p>
+	 * @param title of the track
+	 * @param lenghtInSec the lenght of the track in seconds
+	 */
+	public Track(String title, int lenghtInSec) {
+		//this.title = title.toLowerCase();
+		this.title = title;
+		this.min = lenghtInSec/SEC_PER_MIN;
+		this.sec = lenghtInSec%SEC_PER_MIN;
+	}
+	
+	/**
+	 * <p><b>getTitle</b><p>
+	 * <p><i style="margin-left:40px">public String getTitle()</i></p>
+	 * @return the title of the track
 	 */
 	public String getTitle() {
-		return StringOperations.CapitalizeFirstLetter(title);
+		return title;
 	}
-
+	
 	/**
+	 * <p><b>getLenght</b><p>
+	 * <p><i style="margin-left:40px">public double getLenght()</i></p>
 	 * @return the lenght of the track
 	 */
 	public double getLenght() {
-		return lenght;
+		return this.min+(double)this.sec/INT_TO_DOUBLE_POSITION;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
+	/**
+	 * <p><b>getLenght</b><p>
+	 * <p><i style="margin-left:40px">public double getLenght()</i></p>
+	 * @return string rapresentation of a track
 	 */
 	@Override
 	public String toString() {
-		//return "Track [title=" + getTitle() + ", lenght=" + lenght + "]";
-		return String.format("Track [title=" + getTitle() + ", lenght=%2."+Math.countDecimalPosition(lenght)+"f]", lenght);
+		return String.format("%s [%02d:%02d]", getTitle(), min, sec);
 	}
 
 }
