@@ -17,4 +17,24 @@ public class StringOperations {
 		return StringOperations.CapitalizeFirstLetter(toCapitalize);
 	}
 	
+	/**
+	 * 
+	 * @param txt the text to capitalize
+	 * @return capitalized text
+	 */
+	public static String CapitalizeFirstLetterOfEachWord(String txt) {
+		String compiledTxt = "";
+		// TODO usa system get space
+		String[] splittedTxt = txt.split(" ");
+		int i = 0;
+		for (String word : splittedTxt) {
+			if (i == 0)
+				compiledTxt += CapitalizeFirstLetter(word);
+			else
+				compiledTxt += " " + CapitalizeFirstLetter(word);
+			i++;
+		}
+
+		return compiledTxt;
+	}
 }

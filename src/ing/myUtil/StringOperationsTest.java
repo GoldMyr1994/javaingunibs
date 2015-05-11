@@ -18,5 +18,12 @@ public class StringOperationsTest {
 		}
 		assertArrayEquals(expected,actual);
 	}
+	
+	@Test
+	public void testCapitalizeFirstLetterOfEachWord() {
+		String expected = "Ciao Io Sono Molto Bello E Tommy Fa Un Figo.";
+		String actual = "ciao io sono molto bello e tommy fa un figo.";
+		assertEquals(expected,StringOperations.CapitalizeFirstLetterOfEachWord(actual));
+	}
 
 }
