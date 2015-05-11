@@ -2,11 +2,12 @@ package ing;
 
 /**
  * @author Tommaso Fanelli
- * @version 1.1
+ * @version 1.4
  * @since 1.0
  * 
  */
 
+import ing.myUtil.MyMenu;
 import ing.myUtil.ReaderInput;
 
 public class TamagotchiMain {
@@ -18,7 +19,7 @@ public class TamagotchiMain {
 	private static final String STEP_2_MESSAGE_B = " inserire \"1\"";
 	private static final String STEP_3_MESSAGE = "Se desideri dare dei biscotti a ";
 	private static final String STEP_3_MESSAGE_B = " inserire \"2\"";
-	private static final String STEP_4_MESSAGE = "Se desideri uscire inserire \"3\"";
+//	private static final String STEP_4_MESSAGE = "Se desideri uscire inserire \"3\"";
 	
 	
 /**
@@ -29,20 +30,28 @@ public class TamagotchiMain {
    public static void main(String[] args) {
 		System.out.println(WELCOME_MESSAGE);
 		System.out.println(STEP_1_MESSAGE);
-		String name = ReaderInput.readWord(GET_NAME_MESSAGE);
-		Tamagotchi tama = new Tamagotchi(name,Tamagotchi.DEFAULT_SATIETY,Tamagotchi.DEFAULT_EMOTIVITY);
-		System.out.println(tama.toString());
+		String name = ReaderInput.readLine(GET_NAME_MESSAGE);
+		Tamagotchi tama = new Tamagotchi(name);
+		System.out.println("\n"+tama.toString()+"\n");
 		
-		int choose;
-		do{
-		System.out.println(STEP_2_MESSAGE+tama.getName()+STEP_2_MESSAGE_B);
-		System.out.println(STEP_3_MESSAGE+tama.getName()+STEP_3_MESSAGE_B);
-		System.out.println(STEP_4_MESSAGE);
+		int _menu;
+//		int choose;
 		
-		choose = ReaderInput.readInt();
+
+
+	do{
+//		System.out.println(STEP_2_MESSAGE+tama.getName()+STEP_2_MESSAGE_B);
+//		System.out.println(STEP_3_MESSAGE+tama.getName()+STEP_3_MESSAGE_B);
+//		System.out.println(STEP_4_MESSAGE);
+		
+//	  choose = ReaderInput.readInt();
+        String [] voci = {STEP_2_MESSAGE+tama.getName()+STEP_2_MESSAGE_B,STEP_3_MESSAGE+tama.getName()+STEP_3_MESSAGE_B,};
+        MyMenu menu = new MyMenu(tama.getName(),voci);
+        _menu = menu.scegli();
+	 
 		int quantity;
 		
-		switch (choose){
+		switch (_menu){
 		case 1 :
 			quantity = ReaderInput.readInt("Quante carezze vuoi dare a "+tama.getName()+ "?");
 			tama.caress(quantity);
@@ -53,21 +62,23 @@ public class TamagotchiMain {
 			tama.feed(quantity);
 			break;
 		
-		case 3 :
+		case 0 :
 			break;
 		 }
 	   
 
 		
-	    if(choose == 3) {
+	    if(_menu == 0) {
 			System.out.println(tama.getName()+" è andato a dormire");
 			break;
 		}
 		
-		System.out.println(tama.toString());
+	    
+		System.out.println("\n"+tama.toString()+"\n");
+	
 		
 
-	if (choose < 4){
+	if (_menu < 4){
 	   if (tama.isAlive()){
 	      if(tama.isHappy()) {
 			 System.out.println("Sono felice :)");
@@ -79,13 +90,10 @@ public class TamagotchiMain {
    }
 }  else  {	
 
-
-	
-		
-		System.out.println("Non hai inserito il numero giusto");
+        System.out.println("Non hai inserito il numero giusto");
 	  }
 		
-        } while(choose!=3);
+        } while(_menu!=3);
 		
 	
 		
