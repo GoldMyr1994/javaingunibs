@@ -49,6 +49,17 @@ public class ReaderInput {
 		return valueFromReader;
 	}
 	
+	
+	
+	public static final int readIntBetween(String msg,int min,int max){
+		int readInt = readInt(msg);
+	 while(!((readInt<=max) && (readInt>=min))){
+		 System.out.println(ERROR_FORMAT);
+		 readInt = readInt(msg);
+	 }
+	 return readInt;
+	}
+	
 	/**
 	 * 
 	 * @param msg to print on screen
