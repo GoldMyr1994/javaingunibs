@@ -48,9 +48,22 @@ public class ArchiveCD {
 
 	}
 	
-//	public selectRandomTrack(int index) {
-//		return this.archiveCD.get(index).toString();
-//	}
+	public void deleteCD(String title) {
+		int i = 0;
+		for(CD current : archiveCD) {
+			if(current.hasTitle(title)) {
+				archiveCD.remove(i);
+				break;
+			}
+			i++;
+				
+		}
+	}
+	
+	public Track selectRandomTrack(int index) {
+		int indexRandomCD = (int)(Math.random()*(archiveCD.size()-1));
+		return archiveCD.get(indexRandomCD).selectRandomTrack();
+	}
 	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

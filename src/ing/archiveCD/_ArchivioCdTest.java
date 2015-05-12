@@ -35,7 +35,7 @@ public class _ArchivioCdTest {
 		archivio.addCD(new CD("Anime salve", "Fabrizio De André"));
 		archivio.addCD(new CD("Storia di un impiegato", "Fabrizio De André"));
 		assertEquals(2, archivio.getArchiveLenght());
-		//archivio.eliminaCd("Anime salve");
+		archivio.deleteCD("Anime salve");
 		assertEquals(1, archivio.getArchiveLenght());
 		assertFalse(archivio.hasCD("Anime salve"));
 	}
