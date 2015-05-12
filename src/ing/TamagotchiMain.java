@@ -9,6 +9,7 @@ package ing;
 
 import ing.myUtil.MyMenu;
 import ing.myUtil.ReaderInput;
+import ing.myUtil.StringOperations;
 
 public class TamagotchiMain {
 
@@ -46,7 +47,7 @@ public class TamagotchiMain {
 		
 //	  choose = ReaderInput.readInt();
         String [] voci = {STEP_2_MESSAGE+tama.getName()+STEP_2_MESSAGE_B,STEP_3_MESSAGE+tama.getName()+STEP_3_MESSAGE_B,};
-        MyMenu menu = new MyMenu(tama.getName(),voci);
+        MyMenu menu = new MyMenu(StringOperations.CapitalizeFirstLetter(tama.getName().toLowerCase()),voci);
         _menu = menu.scegli();
 	 
 		int quantity;
@@ -63,15 +64,16 @@ public class TamagotchiMain {
 			break;
 		
 		case 0 :
+			System.out.println(tama.getName()+" è andato a dormire");
 			break;
 		 }
 	   
 
 		
-	    if(_menu == 0) {
-			System.out.println(tama.getName()+" è andato a dormire");
-			break;
-		}
+//	    if(_menu == 0) {
+//			System.out.println(tama.getName()+" è andato a dormire");
+//			break;
+//		}
 		
 	    
 		System.out.println("\n"+tama.toString()+"\n");
@@ -93,7 +95,7 @@ public class TamagotchiMain {
         System.out.println("Non hai inserito il numero giusto");
 	  }
 		
-        } while(_menu!=3);
+        } while(_menu!=0);
 		
 	
 		

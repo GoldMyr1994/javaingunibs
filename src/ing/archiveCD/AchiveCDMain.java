@@ -16,12 +16,16 @@ public class AchiveCDMain {
 	private static final String SELECT_RANDOM_TRAK = "Visualizza un brano casuale";
 
 	private static final String WRITE_CD_NAME = "Inserisci il nome del CD: ";
-	private static final String WRITE_AUTHOR_NAME = "Inserisci il nome dell'autore ";
+	private static final String WRITE_AUTHOR_NAME = "Inserisci il nome dell'autore: ";
 	private static final String NEW_TRACK = "Vuoi agiungere un nuovo brano? ";
-
+	
 	private static final String WRITE_TRACK_NAME = "Inserisci il nome della traccia: ";
-	private static final String GET_MIN_TRACK = "Inserisci i minuti del brano ";
-	private static final String GET_SEC_TRACK = "Inserisci i secondi del brano ";
+	private static final String GET_MIN_TRACK = "Inserisci i minuti del brano: ";
+	private static final String GET_SEC_TRACK = "Inserisci i secondi del brano: ";
+	
+	private static final String WRITE_CD_TO_SEE = "Inserisci il nome del CD da visualizzare: ";
+	
+	private static ArchiveCD myarchive;
 
 	public static void main(String[] args) {
 		
@@ -32,11 +36,13 @@ public class AchiveCDMain {
 		
 		 String [] voci = {CREATE_NEW_CD,SEE_CD,REMOVE_CD,SEE_ENTIRE_COLLECTION,SELECT_RANDOM_TRAK};
 		 MyMenu menu = new MyMenu (ARCHIVE_OWNER +name, voci);
+		 myarchive = new ArchiveCD();       
+			  
+			
 	   do{     
 	      _menu = menu.scegli();
-	        
-	 ArchiveCD myarchive = new ArchiveCD();       
-	  
+
+
 	        
 	switch (_menu){
 	  
@@ -46,6 +52,9 @@ public class AchiveCDMain {
 	     break;
 	  
 	  case 2:
+		  
+		  ReaderInput.readLine(WRITE_CD_TO_SEE);
+		
 		  
 		  break;
 	  
@@ -68,8 +77,7 @@ public class AchiveCDMain {
 		a = ReaderInput.readLine(WRITE_AUTHOR_NAME);
 		cd = new CD(t, a);
 
-		Character choose = ReaderInput.readLine(NEW_TRACK).toLowerCase()
-				.charAt(0);
+		Character choose = ReaderInput.readLine(NEW_TRACK).toLowerCase().charAt(0);
 		while (choose != 'n') {
 			cd.addTrack(askForATrack());
 			choose = ReaderInput.readLine(NEW_TRACK).toLowerCase().charAt(0);
