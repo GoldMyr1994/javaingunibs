@@ -8,7 +8,7 @@ import org.junit.Test;
 public class TrackTest {
 
 	private Track[] TrackNum;
-	private final String TRACK_TO_STRING = "Track [title=desaparecido, min=3, sec=47]";
+	private final String TRACK_TO_STRING = "Desaparecido [03:47]";
 	
 	@Before
 	public void setUp() {
@@ -33,7 +33,7 @@ public class TrackTest {
 	
 	@Test
 	public void testToString() {
-		String[] expected = {TRACK_TO_STRING,TRACK_TO_STRING,TRACK_TO_STRING,};
+		String[] expected = {TRACK_TO_STRING,TRACK_TO_STRING,TRACK_TO_STRING};
 		String[] actual = new String[3];
 		int i=0;
 		for(Track t : TrackNum) {

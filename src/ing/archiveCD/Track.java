@@ -5,15 +5,14 @@ package ing.archiveCD;
  * @author 		Mauro Conte
  * @version  	1.2
  * @since  		1.0
- * @see			ing.myUtil.StringOperationsTest
  */
 public class Track {
-
-	private final String title;
 	
+	private final String FORMAT_TO_STRING = "%s [%02d:%02d]";
 	private final int INT_TO_DOUBLE_POSITION = 100;
 	private final int SEC_PER_MIN = 60;
 	
+	private final String title;
 	private final int min;
 	private final int sec;
 
@@ -75,14 +74,10 @@ public class Track {
 		return this.min+(double)this.sec/INT_TO_DOUBLE_POSITION;
 	}
 
-	/**
-	 * <p><b>getLenght</b><p>
-	 * <p><i style="margin-left:40px">public double getLenght()</i></p>
-	 * @return string rapresentation of a track
-	 */
+
 	@Override
 	public String toString() {
-		return String.format("%s [%02d:%02d]", getTitle(), min, sec);
+		return String.format(FORMAT_TO_STRING, getTitle(), min, sec);
 	}
 
 }

@@ -10,11 +10,6 @@ public class ArchiveCD {
 		this.archiveCD = new Vector<CD>();
 	}
 	
-	public ArchiveCD(CD e) {
-		this();
-		this.archiveCD.add(e);
-	}
-	
 	public ArchiveCD(CD ... CDs) {
 		this();
 		for(CD e : CDs) this.archiveCD.add(e);
@@ -62,7 +57,12 @@ public class ArchiveCD {
 	 */
 	@Override
 	public String toString() {
-		return "ArchiveCD [archiveCD=" + archiveCD + "]";
+		String _toString = "";
+		_toString += "ARCHIVIO:";
+		if(archiveCD.size()>0) {
+			for(CD cd : archiveCD) _toString += "\n"+cd.toString();
+		} 
+		return _toString;
 	}
 
 	

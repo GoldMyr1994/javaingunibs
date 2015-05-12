@@ -38,7 +38,28 @@ public class ArchiveCDTest {
 
 	@Test
 	public void testToString() {
-		fail("Not yet implemented");
+		myArchive.addCD(proxima);
+		String expected = "ARCHIVIO:\n";
+		expected += "clandestino - manu chao\n";
+		expected += "clandestino [02:28]\n";
+		expected += "desaparecido [03:47]\n";
+		expected += "bongo bong [02:38]\n";
+		expected += "je ne t'aime plus [02:03]\n";
+		expected += "mentira... [04:37]\n";
+		expected += "lagrimas de oro [02:58]\n";
+		expected += "mama call [02:21]\n";
+		expected += "luna y sol [03:07]\n";
+		expected += "Próxima Estación: Esperanza - manu chao\n";
+		expected += "merry blues [03:07]\n";
+		expected += "brixio [02:34]\n";
+		expected += "promiscuity [03:04]\n";
+		expected += "la primavera [02:55]\n";
+		expected += "me gustas tù [03:54]\n";
+		expected += "denia [02:23]\n";
+		expected += "mi vida [02:01]\n";
+		expected += "trapped by love [03:21]\n";
+		
+		assertEquals(expected, myArchive.toString());
 	}
 
 	@Test
