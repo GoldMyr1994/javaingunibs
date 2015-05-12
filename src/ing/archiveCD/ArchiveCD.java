@@ -44,10 +44,21 @@ public class ArchiveCD {
 		return result;
 	}
 	
-	public void removeCD(String title) {
-
+	public CD selectCD(String title) {
+		
+		CD cd = null;
+		if(hasCD(title)) {
+			if(archiveCD.size()>0) {
+				for(CD item : archiveCD) {
+					if(item.getTitle().equals(title)) {
+						cd = item;
+					}
+				}
+			}
+		}
+		return cd;
 	}
-	
+	 
 	public void deleteCD(String title) {
 		int i = 0;
 		for(CD current : archiveCD) {
@@ -60,7 +71,7 @@ public class ArchiveCD {
 		}
 	}
 	
-	public Track selectRandomTrack(int index) {
+	public Track selectRandomTrack() {
 		int indexRandomCD = (int)(Math.random()*(archiveCD.size()-1));
 		return archiveCD.get(indexRandomCD).selectRandomTrack();
 	}
