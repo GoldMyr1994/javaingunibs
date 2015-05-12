@@ -72,8 +72,22 @@ public class ArchiveCD {
 	}
 	
 	public Track selectRandomTrack() {
+		
+		boolean check = false;
+		for(CD curr : archiveCD ) {
+			if(curr.getLenght()>0) check = check || true;
+			else check = check || false;
+		}
+		
 		int indexRandomCD = (int)(Math.random()*(archiveCD.size()-1));
-		return archiveCD.get(indexRandomCD).selectRandomTrack();
+		
+		Track tmp = null;
+		if(check) {
+			while(tmp == null) {
+				tmp = archiveCD.get(indexRandomCD).selectRandomTrack();
+			}
+		}
+		return tmp;
 	}
 	
 	/* (non-Javadoc)

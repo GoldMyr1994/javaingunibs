@@ -17,13 +17,17 @@ public class AchiveCDMain {
 
 	private static final String WRITE_CD_NAME = "Inserisci il nome del CD: ";
 	private static final String WRITE_AUTHOR_NAME = "Inserisci il nome dell'autore: ";
-	private static final String NEW_TRACK = "Vuoi agiungere un nuovo brano? ";
+	private static final String NEW_TRACK = "Vuoi agiungere un nuovo brano? (y/n) ";
 	
 	private static final String WRITE_TRACK_NAME = "Inserisci il nome della traccia: ";
 	private static final String GET_MIN_TRACK = "Inserisci i minuti del brano: ";
 	private static final String GET_SEC_TRACK = "Inserisci i secondi del brano: ";
 	
 	private static final String WRITE_CD_TO_SEE = "Inserisci il nome del CD da visualizzare: ";
+	
+	private static final String WRITE_CD_TO_DELETE = "Inserisci il nome del CD da eliminare ";
+	private static final String CONFIRM_DELETE = "Sei sicuro di voler eliminare questo CD? (y/n) ";
+	private static final String DELETED = "Il CD selezionato è stato eliminato";
 	
 	private static ArchiveCD myarchive;
 
@@ -51,17 +55,37 @@ public class AchiveCDMain {
 		  myarchive.addCD(theNewCD);
 	     break;
 	  
+	  
 	  case 2:
-		  
-		  ReaderInput.readLine(WRITE_CD_TO_SEE);
-		
-		  
+		   System.out.println("\n\n"+ myarchive.selectCD(ReaderInput.readLine(WRITE_CD_TO_SEE)).toString()+"\n\n");
+		   break;
+	
+	 
+	  case 3:
+		 char a; 
+		 String title;
+		 
+		 title = ReaderInput.readLine(WRITE_CD_TO_DELETE);
+		 a = ReaderInput.readLine(CONFIRM_DELETE).toLowerCase().charAt(0);
+		if (a != 'n' ){
+		  myarchive.deleteCD(title);
+		  System.out.println("\n\n"+DELETED+"\n\n\n");
+		}
 		  break;
 	  
+	  
 	  case 4 :
-		  System.out.println(myarchive.toString());
+		  System.out.println("\n\n"+myarchive.toString()+"\n\n");
+		  break;
+	 
+	 
+	  case 5 :
+		Track aTrack =   myarchive.selectRandomTrack();
+		  if (aTrack!=null) System.out.println(aTrack.toString());
+		  
 		  break;
 
+	 
 	  case 0 :
 		  break;
 		   

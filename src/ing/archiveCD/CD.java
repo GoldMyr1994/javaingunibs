@@ -118,6 +118,9 @@ public class CD {
 		else return false;
 	}
 	
+	public int getLenght() {
+		return listTrack.size();
+	}
 
 	@Override
 	public String toString() {
