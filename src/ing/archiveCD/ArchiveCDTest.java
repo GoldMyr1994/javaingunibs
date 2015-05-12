@@ -50,14 +50,14 @@ public class ArchiveCDTest {
 		expected += "mama call [02:21]\n";
 		expected += "luna y sol [03:07]\n";
 		expected += "Próxima Estación: Esperanza - manu chao\n";
-		expected += "merry blues [03:07]\n";
-		expected += "brixio [02:34]\n";
+		expected += "merry blues [02:23]\n";
+		expected += "bixio [02:34]\n";
 		expected += "promiscuity [03:04]\n";
 		expected += "la primavera [02:55]\n";
-		expected += "me gustas tù [03:54]\n";
-		expected += "denia [02:23]\n";
+		expected += "me gustas tú [03:54]\n";
+		expected += "denia [02:32]\n";
 		expected += "mi vida [02:01]\n";
-		expected += "trapped by love [03:21]\n";
+		expected += "trapped by love [03:21]";
 		
 		assertEquals(expected, myArchive.toString());
 	}
