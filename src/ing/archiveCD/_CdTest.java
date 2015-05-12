@@ -44,12 +44,10 @@ public class _CdTest {
 		for(int i = 0; i < numeroBrani; i++) {
 			cd.addTrack(new Track("Brano " + i, i, i));
 		}
-		System.out.println(cd.toString());
 		final int numeroEstrazioni = 100;
 		Set<String> titoliBraniEstratti = new HashSet<String>();
 		for(int i = 0; i < numeroEstrazioni; i++) {
 			Track b = cd.selectRandomTrack();
-			System.out.println(b.toString());
 			titoliBraniEstratti.add(b.getTitle());
 		}
 		assertTrue(titoliBraniEstratti.size() >= 7);

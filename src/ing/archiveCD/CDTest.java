@@ -53,7 +53,7 @@ public class CDTest {
 	@Test
 	public void testToString() {
 		myCD.addTrack(new Track("desaparecido", 3.49));
-		assertEquals("clandestino - manu chao\nclandestino [02:28]\ndesaparecido [03:49]\n", myCD.toString());
+		assertEquals("clandestino - manu chao\nclandestino [02:28]\ndesaparecido [03:49]", myCD.toString());
 	}
 
 }
