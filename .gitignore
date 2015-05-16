@@ -1,2 +1,4 @@
-/bin/
-/bin/ing
+bin
+.settings
+.classpath
+.project
