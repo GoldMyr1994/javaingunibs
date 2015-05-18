@@ -33,9 +33,12 @@ public class NationList {
 	 
 	public boolean alreadyExist(String nationName){
 		boolean result = false;
+		if(elements.size() > 0) {
 		 for(Nation n : elements){
 			 if(nationName.equalsIgnoreCase(n.getNation())) result = true;
-		 }return result;
+		 }
+		}
+		return result;
 	 }
 
 }

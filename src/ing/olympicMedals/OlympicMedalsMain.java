@@ -42,6 +42,7 @@ public class OlympicMedalsMain {
 	 */
 	public static void main(String[] args) {
 		listN = new NationList();
+		listC = new CompetitionList();
 		menu = new MyMenu(	TITLE					, 
 							OPT_ADD_NATION			,
 							OPT_ADD_COMPETITION		,

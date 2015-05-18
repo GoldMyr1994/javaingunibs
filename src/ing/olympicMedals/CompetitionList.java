@@ -40,9 +40,12 @@ public class CompetitionList {
 	
 	public boolean alreadyExist(String competitionName){
 		boolean result = false;
+		if(elements.size()>0) {
 		 for(Competition n : elements){
 			 if(competitionName.equalsIgnoreCase(n.getType())) result = true;
-		 }return result;
+		 }
+		}
+		return result;
 	 }
 	
 	
