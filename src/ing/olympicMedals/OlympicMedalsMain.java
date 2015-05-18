@@ -5,8 +5,8 @@ package ing.olympicMedals;
 
 import java.util.Vector;
 
-import ing.myUtil.MyMenu;
 import ing.myUtil.ReaderInput;
+import ing.myUtil.StdMenu;
 
 
 /**
@@ -32,7 +32,7 @@ public class OlympicMedalsMain {
 	
 	private static NationList listN;
 	private static CompetitionList listC;
-	private static MyMenu menu;
+	private static StdMenu menu;
 	
 	
 	/**
@@ -43,7 +43,7 @@ public class OlympicMedalsMain {
 	public static void main(String[] args) {
 		listN = new NationList();
 		listC = new CompetitionList();
-		menu = new MyMenu(	TITLE					, 
+		menu = new StdMenu(	TITLE					, 
 							OPT_ADD_NATION			,
 							OPT_ADD_COMPETITION		,
 							OPT_SET_PODIUM			,
@@ -53,7 +53,8 @@ public class OlympicMedalsMain {
 		int choose;
 		
 		do{
-			choose = menu.scegli();
+			System.out.println(menu.toString());
+			choose = menu.waitChoose();
 			
 			switch (choose) {
 				case 1:
