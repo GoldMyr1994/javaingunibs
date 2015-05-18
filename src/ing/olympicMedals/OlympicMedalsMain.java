@@ -77,7 +77,7 @@ public class OlympicMedalsMain {
 					logResult();
 					break;
 				case 0:
-					//EXIT MAIN
+					System.out.println(EXIT_MSG);
 					break;
 					
 				default:
@@ -98,12 +98,12 @@ public class OlympicMedalsMain {
 	}
 	
 	private static void getCompetition() {
-//		System.out.println(OPT_ADD_COMPETITION);
-//		String cmpName;
-//		do {
-//			cmpName = ReaderInput.readLine(GET_COMPETITION);
-//		} while(listC.alreadyExist(cmpName));
-//		listC.addCompetition(new Competition(PODIUM_LENGHT, cmpName));
+		System.out.println(OPT_ADD_COMPETITION);
+		String cmpName;
+		do {
+			cmpName = ReaderInput.readLine(GET_COMPETITION);
+		} while(listC.alreadyExist(cmpName));
+		listC.addCompetition(new Competition(PODIUM_LENGHT, cmpName));
 	}
 	
 	private static void logResult() {
@@ -114,7 +114,6 @@ public class OlympicMedalsMain {
 		Vector<Nation> a = new Vector<Nation>();
 		Vector<Double> b = new Vector<Double>();
 		
-		Competition tmpC;
 		Nation tmpN;
 		int i,j;
 		
@@ -123,7 +122,7 @@ public class OlympicMedalsMain {
 			tmpN = listN.get(i);
 			a.add(tmpN);
 			
-			for(j=0; j<listC.getLengt(); j++) {
+			for(j=0; j<listC.getLenght(); j++) {
 				Competition tmp = listC.get(j);
 				if(tmp.getPodiumN(0) == tmpN) {
 					if(b.size() < i+1) b.add(0,0.0);
