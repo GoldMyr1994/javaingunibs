@@ -2,6 +2,7 @@ package ing.olympicMedals;
 
 import java.util.*;
 
+
 public class CompetitionList {
 	
 	private Vector <Competition> elements;
@@ -11,15 +12,20 @@ public class CompetitionList {
 	}
 	
 	
-	public String [] getType()
-	{
-	 String [] result = new String[elements.size()];
-	 for (int i = 0; i < result.length; i++)
-		{
-		  result[i] = elements.get(i).getType();
-		}
-		
-	 return result;
+//	public String [] getType()
+//	{
+//	 String [] result = new String[elements.size()];
+//	 for (int i = 0; i < result.length; i++)
+//		{
+//		  result[i] = elements.get(i).getType();
+//		}
+//		
+//	 return result;
+//	}
+	
+
+	public Competition get(int i) {
+		return elements.get(i);
 	}
 	
 	
@@ -27,10 +33,31 @@ public class CompetitionList {
 		elements.addElement(n);
 	}
 	
+	public int getLenght(){
+		return elements.size();
+	}
+	
+	
+	public boolean alreadyExist(String competitionName){
+		boolean result = false;
+		 for(Competition n : elements){
+			 if(competitionName.equalsIgnoreCase(n.getType())) result = true;
+		 }return result;
+	 }
+	
+	
+	
 	public boolean isEmpty(){
 		boolean result = false;
 		if(elements.size() == 0) result = true;
 		return result;
 	}
+	
+	@Override
+	public String toString(){
+		if(elements.size()>0) return String.format("Competizioni:\n"+"-%s \n", elements);
+		else return String.format("non c'è nulla");
+	}
+
 
 }
