@@ -24,7 +24,7 @@ public class CompetitionList {
 	
 	
 	public void addCompetition(Competition n ){
-		elements.addElement(n);
+		elements.add(n);
 	}
 	
 	public boolean isEmpty(){
