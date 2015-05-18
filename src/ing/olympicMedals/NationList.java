@@ -1,4 +1,5 @@
 package ing.olympicMedals;
+
 import java.util.*;
 
 public class NationList {

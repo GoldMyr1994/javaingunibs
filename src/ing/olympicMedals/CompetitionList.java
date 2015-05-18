@@ -10,6 +10,7 @@ public class CompetitionList {
 		elements = new Vector <Competition>();
 	}
 	
+	
 	public String [] getType()
 	{
 	 String [] result = new String[elements.size()];
@@ -20,6 +21,7 @@ public class CompetitionList {
 		
 	 return result;
 	}
+	
 	
 	public void addCompetition(Competition n ){
 		elements.addElement(n);

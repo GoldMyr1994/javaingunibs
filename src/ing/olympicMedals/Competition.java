@@ -1,27 +1,45 @@
 package ing.olympicMedals;
 
-import java.util.Vector;
 
-
-public class Competition extends Podium {
+public class Competition {
 	
-	private static int N_POSITION = 3;
 	private final String type;
 	private final String FORMAT_TO_STRING = " %s ";
 	
+	private int lenght;
+	private Nation[] podium;	
 	
-	public Competition (String type){
-		super(N_POSITION);
+	
+	
+	public Competition (int lenght, String type) {
+		this.lenght = lenght;
+		this.podium = new Nation[this.lenght];
 		this.type = type;
 	}
 	
-	public Competition (String type, Vector<Nation> podium){
-		super(N_POSITION);
-		this.type = type;
+	
+	
+	public boolean isReady() {
+		boolean result = true;
+		for(int i = 0 ; i < lenght; i++){
+			if(podium[i] == null) result = false;
+		}
+		return result;
 	}
-
+	
+	
 	public String getType(){
 		return type;
+	}
+	
+	
+	public Nation getPodiumN(int i) {
+		return podium[i];
+	}
+	
+	
+	public void setPodiumN(Nation n, int i) {
+		this.podium[i] = n;
 	}
 	
 	
