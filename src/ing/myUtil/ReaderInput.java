@@ -50,13 +50,19 @@ public class ReaderInput {
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @param msg
+	 * @param min
+	 * @param max
+	 * @return
+	 */
 	public static final int readIntBetween(String msg,int min,int max){
-		int readInt = readInt(msg);
-	 while(!((readInt<=max) && (readInt>=min))){
-		 System.out.println(ERROR_FORMAT);
-		 readInt = readInt(msg);
-	 }
+		int readInt;
+		do {
+			readInt = readInt(msg);
+		}
+		while(readInt<min || readInt>max);
 	 return readInt;
 	}
 	
