@@ -10,9 +10,17 @@ public class NationList {
 		elements = new Vector<Nation>();
 	}
 	
+	public Nation get(int i) {
+		return elements.get(i);
+	}
+	
 	
 	public void addNation(Nation n){
 		elements.addElement(n);
+	}
+	
+	public int getLenght(){
+		return elements.size();
 	}
 	
 	
@@ -26,7 +34,7 @@ public class NationList {
 	public boolean alreadyExist(String nationName){
 		boolean result = false;
 		 for(Nation n : elements){
-			 if(nationName.equals(n.getNation())) result = true;
+			 if(nationName.equalsIgnoreCase(n.getNation())) result = true;
 		 }return result;
 	 }
 
