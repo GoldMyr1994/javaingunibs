@@ -46,9 +46,12 @@ public class StdMenu {
 		toString += System.getProperty("line.separator");
 		toString += title;
 		toString += System.getProperty("line.separator");
+		toString += FRAME;
+		toString += System.getProperty("line.separator");
 		
 		for(int i=0; i<this.option.length; i++) {
-			toString += String.format(FORMAT_OPTIONS_COIHE, i, this.option[i]);
+			
+			toString += String.format(FORMAT_OPTIONS_COIHE, i+1, this.option[i]);
 			toString += System.getProperty("line.separator");
 		}
 		toString += System.getProperty("line.separator");
