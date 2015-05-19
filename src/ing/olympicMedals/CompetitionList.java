@@ -58,8 +58,14 @@ public class CompetitionList {
 	
 	@Override
 	public String toString(){
-		if(elements.size()>0) return String.format("\nCompetizioni:\n"+"%s \n", elements);
-		else return String.format("\nNon ci sono ancora competizioni\n");
+		String format = "- %s \n";
+		String toString = "Gare:\n";
+		for (Competition c : elements) {
+			toString += String.format(format, c.toString());
+		}
+		return toString;
+//		if(elements.size()>0) return String.format("\nCompetizioni:\n"+"%s \n", elements);
+//		else return String.format("\nNon ci sono ancora competizioni\n");
 	}
 
 
