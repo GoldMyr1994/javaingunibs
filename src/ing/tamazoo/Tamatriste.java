@@ -4,7 +4,7 @@ import ing.Tamagotchi;
 
 public class Tamatriste extends Tamagotchi  {
 	
-	
+
 	final static int MAX_VALUE = 100;
 	final static int MIN_VALUE = 0;
 	
@@ -55,6 +55,11 @@ public class Tamatriste extends Tamagotchi  {
 		} else return false;
 	}
 
+	
+	@Override
+	public boolean isHappy() {
+		return false;
+	}
 
 
 	@Override
