@@ -9,17 +9,17 @@ package ing;
  */
 public class Tamagotchi {
  
-	final static int MAX_VALUE = 100;
-	final static int MIN_VALUE = 0;
+	protected final static int MAX_VALUE = 100;
+	protected final static int MIN_VALUE = 0;
 	
-	final static double RATE_FEED = 0.10;			//10%  su tot vedi feed(int)
-	final static double RATE_CARESS = 1.0;			//100% su 1
-	final static double RATE_CARESS_FEED = 0.5;		//50%  su 1
-	final static double RATE_FEED_CARESS = 0.25;	//25%  su 1
+	private static double RATE_FEED = 0.10;			//10%  su tot vedi feed(int)
+	private static double RATE_CARESS = 1.0;			//100% su 1
+	private static double RATE_CARESS_FEED = 0.5;		//50%  su 1
+	private static double RATE_FEED_CARESS = 0.25;	//25%  su 1
 	
-	final static int DEFAULT_SATIETY 		= 50;
-	final static int DEFAULT_EMOTIVITY 		= 50;
-	final static String DEFAULT_NAME 		= "tama";
+	static int DEFAULT_SATIETY 		= 50;
+	static int DEFAULT_EMOTIVITY 	= 50;
+	static String DEFAULT_NAME 		= "tama";
 	
 	final static int MIN_SATIETY_HAPPY		= MAX_VALUE * 3 / 10;
 	final static int MAX_SATIETY_HAPPY		= MAX_VALUE * 9 / 10;
@@ -95,12 +95,26 @@ public class Tamagotchi {
 	 * @param f 
 	 */
 	public void feed(int f) {
+		feed(f,RATE_FEED,RATE_FEED_CARESS);
+	}
+	
+	/**
+	 * 
+	 * @param f
+	 * @param _rate_feed
+	 * @param _rate_feed_caress
+	 */
+	public void feed(int f, double _rate_feed, double _rate_feed_caress) {
+		
+		double rate_feed = _rate_feed;
+		double rate_feed_caress = _rate_feed_caress;
+		
 		int i;
 		// per gni biscottino
 		// incrementa la sazietà del 10%
 		for (i = 0; i < f; i++) {
 
-			this.satiety += this.satiety * RATE_FEED;
+			this.satiety += this.satiety * rate_feed;
 			if (this.satiety >= MAX_VALUE) {
 				this.satiety = MAX_VALUE;
 				// interrompo perchè muore e fa booooom
@@ -108,14 +122,13 @@ public class Tamagotchi {
 				break;
 			}
 
-			this.emotivity -= RATE_FEED_CARESS;
+			this.emotivity -= rate_feed_caress;
 			if (this.emotivity <= MIN_VALUE) {
 				this.emotivity = MIN_VALUE;
 				// interrompo perchè muore di solitudine
 				// non serve a nulla continuare a dargli biscottini
 				break;
 			}
-
 		}
 	}
 	
@@ -124,26 +137,33 @@ public class Tamagotchi {
 	 * @param c
 	 */
 	public void caress(int c) {
+		caress(c, RATE_CARESS, RATE_CARESS_FEED);
+	}
+	
+	public void caress(int c, double _rate_caress, double _rate_caress_feed) {
+		
+		double rate_caress = _rate_caress;
+		double rate_caress_feed = _rate_caress_feed;
+		
 		int i;
 		// per gni biscottino
 		// incrementa la sazietà del 10%
 		for (i = 0; i < c; i++) {
 
-			this.emotivity += RATE_CARESS;
+			this.emotivity += rate_caress;
 			if (this.emotivity >= MAX_VALUE) {
 				this.emotivity = MAX_VALUE;
 				// interrompo perchè muore
 				// non serve a nulla continuare
 			}
 
-			this.satiety -= RATE_CARESS_FEED;
+			this.satiety -= rate_caress_feed;
 			if (this.satiety <= MIN_VALUE) {
 				this.satiety = MIN_VALUE;
 				// interrompo perchè muore
 				// non serve a nulla continuare
 				break;
 			}
-
 		}
 	}
 	
