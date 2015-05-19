@@ -3,7 +3,6 @@
  */
 package ing.olympicMedals;
 
-import java.util.Vector;
 
 import ing.myUtil.ReaderInput;
 import ing.myUtil.StdMenu;
