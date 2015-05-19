@@ -109,39 +109,24 @@ public class OlympicMedalsMain {
 	}
 	
 	private static void logResult() {
-		double VAL_ORO = 1000;
-		double VAL_ARG = 10;
-		double VAL_BRO = 0.1;
-		
-		Vector<Nation> a = new Vector<Nation>();
-		Vector<Double> b = new Vector<Double>();
-		
-		Nation tmpN;
-		int i,j;
-		
-		for(i=0; i<listN.getLenght(); i++) {
-			
-			tmpN = listN.get(i);
-			a.add(tmpN);
-			
-			for(j=0; j<listC.getLenght(); j++) {
-				Competition tmp = listC.get(j);
-				if(tmp.getPodiumN(0) == tmpN) {
-					if(b.size() < i+1) b.add(0,0.0);
-					b.set(i,b.get(i)+VAL_ORO);
-				} 
-				if(tmp.getPodiumN(1) == tmpN) {
-					if(b.size() < i+1) b.add(0,0.0);
-					b.set(i,b.get(i)+VAL_ARG);
-				} 
-				if(tmp.getPodiumN(2) == tmpN) {
-					if(b.size() < i+1) b.add(0,0.0);
-					b.set(i,b.get(i)+VAL_BRO);
-				} 
-			}
+		Nation[] nl = new Nation[listN.getLenght()];
+		for(int i=0; i<listN.getLenght(); i++) {
+			nl[i] = listN.get(i);
 		}
 		
-		
+		boolean change = true;
+		while(change){
+			change = false;
+			for(int i=0; i<nl.length-1; i++) {
+				if(nl[i].getScore() < nl[i+1].getScore()) {
+					Nation tmp = nl[i];
+					nl[i] = nl[i+1];
+					nl[i+1] = tmp;
+					change = true;
+				}
+			}
+			
+		}
 		
 	}
 

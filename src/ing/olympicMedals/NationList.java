@@ -44,8 +44,16 @@ public class NationList {
 	
 	@Override
 	public String toString(){
-		if(elements.size()>0) return String.format("\nNazioni:\n"+"%s \n", elements);
-		else return String.format("\nNon ci sono ancora nazioni\n");
+		String format = "- %s \n";
+		String toString = "Nazioni:\n";
+		for (Nation nation : elements) {
+			toString += String.format(format, nation.toString());
+		}
+		
+		return toString;
+		
+//		if(elements.size()>0) return String.format("\nNazioni:\n"+"%s \n", elements);
+//		else return String.format("\nNon ci sono ancora nazioni\n");
 	}
 
 }
