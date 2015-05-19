@@ -14,6 +14,13 @@ public class NationList {
 		return elements.get(i);
 	}
 	
+	public Nation get(String name) {
+		Nation nation = null;
+		for (Nation n : elements) {
+			if(n.getNation().equalsIgnoreCase(name)) nation = n;
+		}
+		return nation;
+	}
 	
 	public void addNation(Nation n){
 		elements.addElement(n);

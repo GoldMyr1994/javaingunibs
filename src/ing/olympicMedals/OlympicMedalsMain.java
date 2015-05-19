@@ -65,6 +65,30 @@ public class OlympicMedalsMain {
 					break;
 				case 3:
 					System.out.println(OPT_SET_PODIUM);
+					String compName;
+					do {
+						compName = ReaderInput.readLine(GET_COMPETITION);
+					} while(!listC.alreadyExist(compName));
+					Competition c = listC.get(compName);
+					for(int i = 0; i<PODIUM_LENGHT; i++) {
+						String natName;
+						do {
+							natName = ReaderInput.readLine(GET_NATION +" per la posizione "+(i+1));
+						} while(!listN.alreadyExist(natName));
+						Nation theNat = listN.get(natName);
+						c.setPodiumN(theNat, i);
+						switch (i) {
+						case 0:
+							theNat.addGold();
+							break;
+						case 1:
+							theNat.addSilver();
+							break;
+						case 2:
+							theNat.addBronze();
+							break;
+						}
+					}
 					break;
 				case 4:
 					System.out.println(OPT_LOG_NATIONS);
@@ -109,6 +133,8 @@ public class OlympicMedalsMain {
 	}
 	
 	private static void logResult() {
+		
+		String format = "     __ %10s - %10d - %10d - %10d\n";
 		Nation[] nl = new Nation[listN.getLenght()];
 		for(int i=0; i<listN.getLenght(); i++) {
 			nl[i] = listN.get(i);
@@ -125,9 +151,10 @@ public class OlympicMedalsMain {
 					change = true;
 				}
 			}
-			
 		}
-		
+		for (Nation nation : nl) {
+			System.out.print(String.format(format, nation.getNation(), nation.getGold(), nation.getSilver(), nation.getBronze()));
+		}
 	}
 
 }
