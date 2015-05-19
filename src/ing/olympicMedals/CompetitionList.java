@@ -10,22 +10,17 @@ public class CompetitionList {
 	public CompetitionList(){
 		elements = new Vector <Competition>();
 	}
-	
-	
-//	public String [] getType()
-//	{
-//	 String [] result = new String[elements.size()];
-//	 for (int i = 0; i < result.length; i++)
-//		{
-//		  result[i] = elements.get(i).getType();
-//		}
-//		
-//	 return result;
-//	}
-	
 
 	public Competition get(int i) {
 		return elements.get(i);
+	}
+	
+	public Competition get(String type) {
+		Competition c = null;
+		for (Competition competition : elements) {
+			if(competition.getType().equalsIgnoreCase(type)) c = competition;
+		}
+		return c;
 	}
 	
 	
