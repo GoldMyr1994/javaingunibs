@@ -134,7 +134,7 @@ public class OlympicMedalsMain {
 	
 	private static void logResult() {
 		
-		String format = "     __ %10s - %10d - %10d - %10d\n";
+		String format = "     __ %-10s + %10d - %10d - %10d\n";
 		Nation[] nl = new Nation[listN.getLenght()];
 		for(int i=0; i<listN.getLenght(); i++) {
 			nl[i] = listN.get(i);
